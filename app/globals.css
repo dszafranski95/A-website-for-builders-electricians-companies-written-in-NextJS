@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Montserrat', sans-serif; /* Użycie Montserrat jako podstawowej czcionki */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif; /* Użycie Poppins dla nagłówków */
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+#impact {
+  padding-top: 230px !important;
+}
+
+/* Zmniejszenie odstępu na urządzeniach mobilnych */
+@media (max-width: 768px) {
+  #impact {
+    padding-top: 30px !important; /* Zmniejszona wartość paddingu na urządzeniach mobilnych */
+  }
+}
+
+@media (max-width: 480px) {
+  #impact {
+    padding-top: 30px !important; /* Dodatkowe zmniejszenie na bardzo małych ekranach */
+  }
+}
