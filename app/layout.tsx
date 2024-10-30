@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     description: "Energo Expert Plus oferuje szeroki zakres usług elektrycznych, instalacji przemysłowych oraz serwisu.",
     images: ["/metadata/ENERGO.png"],
   },
-  favicon: "favicon.ico",
+  // Removed the favicon property from here
 };
 
 export default function RootLayout({

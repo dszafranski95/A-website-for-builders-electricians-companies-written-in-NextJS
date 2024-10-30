@@ -14,7 +14,7 @@ const images = [
 const KatowicePage: React.FC = () => {
   return (
     <div className="pt-12">
-      <h1 className="text-2xl font-bold pt-12">Katowice Serverownia Gallery</h1>
+      <h1 className="text-2xl font-bold pt-12 text-blue-100">Katowice Serverownia Gallery</h1>
       <GalleryProjects images={images} />
     </div>
   );

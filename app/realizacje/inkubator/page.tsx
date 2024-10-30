@@ -12,7 +12,7 @@ const images = [
 const InkubatorPage: React.FC = () => {
   return (
     <div className="pt-12">
-      <h1 className="text-2xl font-bold pt-12">Inkubator Gallery</h1>
+      <h1 className="text-2xl font-bold pt-12 text-blue-100">Inkubator Gallery</h1>
       <GalleryProjects images={images} />
     </div>
   );

@@ -9,14 +9,15 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #020617;
+    --foreground: #020617;
   }
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: linear-gradient(to right, #0f172a, #1e3a8a); /* Zastępuje from-slate-900 to-blue-900 */
+  
   font-family: 'Montserrat', sans-serif; /* Użycie Montserrat jako podstawowej czcionki */
 }
 
@@ -30,18 +31,21 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 #impact {
-  padding-top: 230px !important;
+  padding-top: 100px !important;
+  background: linear-gradient(to right, #0f172a, #1e3a8a);
+
 }
 
 /* Zmniejszenie odstępu na urządzeniach mobilnych */
 @media (max-width: 768px) {
   #impact {
-    padding-top: 30px !important; /* Zmniejszona wartość paddingu na urządzeniach mobilnych */
+    padding-top: 10px !important; /* Zmniejszona wartość paddingu na urządzeniach mobilnych */
   }
 }
 
 @media (max-width: 480px) {
   #impact {
-    padding-top: 30px !important; /* Dodatkowe zmniejszenie na bardzo małych ekranach */
+    padding-top: 10px !important; /* Dodatkowe zmniejszenie na bardzo małych ekranach */
   }
 }
+

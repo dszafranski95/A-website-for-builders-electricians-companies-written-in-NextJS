@@ -1,5 +1,6 @@
+// energo-app\components\Header.tsx
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { Open_Sans } from "next/font/google";
 import Link from "next/link";
@@ -9,14 +10,30 @@ const openSans = Open_Sans({ subsets: ["latin"], weight: ["400", "600", "700"] }
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {  // Tu ustaw wysokość przewinięcia (np. 50px)
+        setHasScrolled(true);
+      } else {
+        setHasScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <header
-      className={`fixed w-full top-0 left-0 z-50 bg-transparent backdrop-blur-md transition-all duration-300 shadow-lg ${openSans.className}`}
+      className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 shadow-lg ${
+        hasScrolled ? "bg-gradient-to-r from-slate-900 to-blue-900" : "bg-transparent backdrop-blur-md"
+      } ${openSans.className}`}
     >
       <div className="container mx-auto flex justify-between items-center p-4">
         {/* Logo z pliku ENERGO.png */}

@@ -4,7 +4,6 @@ import AboutComponent from "@/components/AboutComponent"; // Import your new com
 import TabComponent from '@/components/TabComponent'; // Ensure the correct path to TabComponent
 import GallerySection from '@/components/GallerySection';
 import ImpactSection from '@/components/ImpactSection';
-import ContactButton from '@/components/ContactButton';
 import WelcomeSection from '@/components/WelcomeSection';
 
 export default function Home() {
@@ -18,7 +17,7 @@ export default function Home() {
         <TabComponent />
 
         <GallerySection />
-        <div className="pt-12" id="impact">
+        <div id="impact">
         <ImpactSection />
         </div>
        <WelcomeSection />

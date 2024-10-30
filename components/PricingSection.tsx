@@ -1,7 +1,7 @@
 // components/PricingSection.tsx
 "use client";
 import Link from 'next/link';
-import { FaCheckCircle, FaPlug, FaSolarPanel, FaBuilding } from 'react-icons/fa'; // Added icons for a more dynamic look
+import { FaCheckCircle, FaPlug, FaSolarPanel, FaBuilding } from 'react-icons/fa';
 
 const pricingOptions = [
   {
@@ -16,7 +16,7 @@ const pricingOptions = [
       'Montaż i uruchomienie',
     ],
     popular: false,
-    icon: <FaSolarPanel className="text-yellow-500 text-3xl" />, // Added icon for visual enhancement
+    icon: <FaSolarPanel className="text-yellow-500 text-4xl animate-pulse" />,
   },
   {
     id: 'product2',
@@ -31,7 +31,7 @@ const pricingOptions = [
       'Montaż i uruchomienie',
     ],
     popular: true,
-    icon: <FaSolarPanel className="text-blue-500 text-3xl" />,
+    icon: <FaSolarPanel className="text-blue-500 text-4xl animate-bounce" />,
   },
   {
     id: 'product3',
@@ -45,7 +45,7 @@ const pricingOptions = [
       'Podłączenie do sieci',
     ],
     popular: false,
-    icon: <FaPlug className="text-green-500 text-3xl" />,
+    icon: <FaPlug className="text-green-500 text-4xl" />,
   },
   {
     id: 'product4',
@@ -59,7 +59,7 @@ const pricingOptions = [
       'Serwis i konserwacja',
     ],
     popular: false,
-    icon: <FaBuilding className="text-red-500 text-3xl" />,
+    icon: <FaBuilding className="text-red-500 text-4xl" />,
   },
   {
     id: 'product5',
@@ -73,7 +73,7 @@ const pricingOptions = [
       'Serwis i konserwacja',
     ],
     popular: false,
-    icon: <FaSolarPanel className="text-orange-500 text-3xl" />,
+    icon: <FaSolarPanel className="text-orange-500 text-4xl animate-spin-slow" />,
   },
   {
     id: 'product6',
@@ -87,73 +87,57 @@ const pricingOptions = [
       'Doradztwo techniczne',
     ],
     popular: false,
-    icon: <FaPlug className="text-purple-500 text-3xl" />,
+    icon: <FaPlug className="text-purple-500 text-4xl animate-pulse" />,
   },
 ];
 
 const PricingSection = () => {
   return (
-    <div className="bg-slate-900 py-10" id="pricing">
-      <div className="mx-auto pb-20 mt-4 max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-base font-semibold leading-7 text-blue-500">Oferta Elektryczna i Fotowoltaiczna</h1>
-          <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Idealne rozwiązania dla domów i przemysłu.
+    <div className="bg-gradient-to-r from-slate-900 to-blue-900 py-20" id="pricing">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h1 className="text-lg font-semibold text-blue-500 uppercase tracking-wide">Oferta Elektryczna i Fotowoltaiczna</h1>
+          <p className="text-4xl font-extrabold text-white mt-4">
+            Idealne rozwiązania dla domów i przemysłu
+          </p>
+          <p className="mt-6 text-lg text-gray-300 max-w-2xl mx-auto">
+            Wybierz ofertę, która najlepiej pasuje do Twoich potrzeb - od instalacji domowych po rozwiązania przemysłowe.
           </p>
         </div>
-        <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-300">
-          Wybierz ofertę, która najlepiej pasuje do Twoich potrzeb - od instalacji domowych po rozwiązania przemysłowe.
-        </p>
-        <div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {/* Generowanie kart ofert */} 
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {pricingOptions.map((option) => (
             <div
               key={option.id}
-              className={`rounded-3xl p-8 xl:p-10 ${
-                option.popular
-                  ? 'bg-blue-700 ring-2 ring-blue-500'
-                  : 'bg-gray-800 ring-1 ring-gray-700'
-              } transition-shadow duration-300 hover:shadow-lg`}
+              className={`p-8 rounded-2xl shadow-xl transition transform hover:scale-105 ${
+                option.popular ? 'bg-blue-700 ring-2 ring-blue-500' : 'bg-slate-800 ring-1 ring-gray-700'
+              }`}
             >
-              <div className="flex items-center justify-between gap-x-4">
-                {/* Icon and title */}
+              <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center">
                   {option.icon}
-                  <h2 id={option.id} className="ml-3 text-lg font-semibold leading-8 text-white">
-                    {option.title}
-                  </h2>
+                  <h3 className="ml-3 text-xl font-bold text-white">{option.title}</h3>
                 </div>
                 {option.popular && (
-                  <p className="rounded-full bg-blue-500 px-2.5 py-1 text-xs font-semibold leading-5 text-white">
+                  <span className="px-2 py-1 text-xs font-semibold text-white bg-blue-500 rounded-full">
                     Najpopularniejsze
-                  </p>
+                  </span>
                 )}
               </div>
-              <p className="mt-4 text-sm leading-6 text-gray-300">{option.description}</p>
-              <p className="mt-6 flex items-baseline gap-x-1">
-                <span className="text-4xl font-bold tracking-tight text-white">
-                  {option.price}
-                </span>
-              </p>
+              <p className="text-sm text-gray-300 mb-6">{option.description}</p>
+              <p className="text-3xl font-bold text-white mb-8">{option.price}</p>
               <Link href="/kontakt">
                 <button
-                  aria-describedby={option.id}
-                  className={`mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
-                    option.popular
-                      ? 'bg-blue-500 text-white shadow-sm hover:bg-blue-600 focus-visible:outline-blue-500'
-                      : 'bg-gray-700 text-white hover:bg-gray-600 focus-visible:outline-gray-500'
+                  className={`block py-3 px-5 rounded-lg text-center font-semibold transition ${
+                    option.popular ? 'bg-blue-500 hover:bg-blue-600 text-white' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'
                   }`}
                 >
                   Zamów teraz
                 </button>
               </Link>
-              <ul
-                role="list"
-                className="mt-8 space-y-3 text-sm leading-6 text-gray-300 xl:mt-10"
-              >
-                {option.features.map((feature, index) => (
-                  <li key={index} className="flex gap-x-3">
-                    <FaCheckCircle className="h-5 w-5 flex-none text-blue-500" />
+              <ul className="mt-6 space-y-4 text-sm text-gray-300">
+                {option.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-center">
+                    <FaCheckCircle className="text-blue-500 mr-2" />
                     {feature}
                   </li>
                 ))}

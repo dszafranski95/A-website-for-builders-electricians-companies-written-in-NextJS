@@ -51,7 +51,7 @@ const images = [
 const TBSBielawaPage: React.FC = () => {
   return (
     <div className="pt-12">
-      <h1 className="text-2xl font-bold pt-12">TBS Bielawa Gallery</h1>
+      <h1 className="text-2xl font-bold pt-12 text-blue-100">TBS Bielawa Gallery</h1>
       <GalleryProjects images={images} />
     </div>
   );

@@ -16,7 +16,7 @@ const images = [
 const GrojecPage: React.FC = () => {
   return (
     <div className="pt-12">
-      <h1 className="text-2xl font-bold pt-12">Grojec Serverownia Gallery</h1>
+      <h1 className="text-2xl font-bold pt-12 text-blue-100">Grojec Serverownia Gallery</h1>
       <GalleryProjects images={images} />
     </div>
   );

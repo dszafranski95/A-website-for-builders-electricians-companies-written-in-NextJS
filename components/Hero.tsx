@@ -48,7 +48,7 @@ const Hero = () => {
       </div>
 
       {/* Ciemna nakładka */}
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-950 to-blue-900 opacity-50"></div>
 
       {/* Treść tekstowa */}
       <div className="absolute inset-0 flex h-screen items-center justify-center">
@@ -58,16 +58,19 @@ const Hero = () => {
               isTextVisible ? "opacity-100" : "opacity-0"
             } ${isTextVisible ? "animate-slide-up" : ""}`}
           >
-            <h1 className="mt-10 text-5xl font-extrabold tracking-tight text-white sm:text-7xl drop-shadow-lg">
-              <span className="text-blue-400">Zasilamy</span> Twój Świat
+            <h1 className="mt-10 text-5xl font-extrabold tracking-tight text-white sm:text-7xl drop-shadow-[0_5px_10px_rgba(0,0,0,0.8)]">
+              <span className="bg-gradient-to-b from-blue-200 to-blue-500 bg-clip-text font-bold text-transparent text-8xl">
+                Zasilamy
+              </span>{" "}
+              Twój Świat
             </h1>
             {/* Dodano półprzezroczyste tło za tekstem */}
-            <p className="mt-6 text-lg leading-8 text-gray-100 drop-shadow-lg bg-black bg-opacity-50 p-4 rounded">
+            <p className="mt-6 text-lg leading-8 text-gray-200 drop-shadow-lg bg-black bg-opacity-60 p-4 rounded-md">
               Profesjonalne instalacje elektryczne w domach i obiektach przemysłowych
             </p>
             <div className="mt-5 flex items-center justify-center gap-x-6">
               <Link href="/oferta">
-                <button className="rounded-md bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-md hover:bg-blue-500 hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                <button className="rounded-md bg-blue-600 px-6 py-3 text-lg font-semibold text-white shadow-lg hover:bg-blue-500 hover:shadow-blue-500/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400">
                   Nasza oferta →
                 </button>
               </Link>

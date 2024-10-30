@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const CallToActionSection: React.FC = () => {
   return (
-    <div className="relative mx-auto max-w-5xl mt-20">
+    <div className="relative mx-auto max-w-5xl mt-20 mb-10">
       <div
         className="rounded-xl p-1"
         style={{
@@ -11,10 +11,10 @@ const CallToActionSection: React.FC = () => {
             'linear-gradient(to right bottom, rgb(37, 99, 235) 0%, rgb(56, 189, 248) 50%, rgb(14, 165, 233) 100%)',
         }}
       >
-        <div className="rounded-lg bg-gray-900 backdrop-blur">
+        <div className="rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 backdrop-blur">
           <div className="flex w-full flex-wrap items-center justify-between gap-4 px-8 py-10 sm:px-16 lg:flex-nowrap">
             <div className="lg:max-w-xl">
-              <h2 className="block w-full pb-2 bg-gradient-to-b from-blue-500 to-blue-300 bg-clip-text font-bold text-transparent text-3xl sm:text-4xl">
+              <h2 className="block w-full pb-2 bg-gradient-to-b from-blue-100 to-blue-300 bg-clip-text font-bold text-transparent text-3xl sm:text-4xl">
                 Chcesz nawiązać współpracę z ekspertami w branży elektrycznej?
               </h2>
               <p className="my-4 bg-transparent font-medium leading-relaxed tracking-wide text-gray-400">

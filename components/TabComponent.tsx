@@ -3,7 +3,6 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-// Zakładki dotyczące elektryki
 const tabs = [
   {
     id: 1,
@@ -56,39 +55,44 @@ const tabs = [
 ];
 
 const TabComponent = () => {
-  const [selectedTab, setSelectedTab] = useState(tabs[0]); // Default to the first tab
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   return (
-    <div className="flex flex-col lg:flex-row bg-gray-900">
+    <div className="flex flex-col lg:flex-row bg-gray-900 shadow-lg rounded-lg overflow-hidden">
       {/* Left side - tab menu */}
-      <div className="w-full lg:w-1/4 bg-gray-800 text-white p-4">
+      <div className="w-full lg:w-1/4 bg-gradient-to-r from-slate-900 to-blue-900 text-white p-4">
         <ul className="space-y-2">
           {tabs.map((tab) => (
             <li
               key={tab.id}
-              className={`p-2 cursor-pointer ${
-                selectedTab.id === tab.id ? "font-bold text-blue-400 bg-gray-700 rounded-lg" : "hover:bg-gray-700"
-              } hover:text-blue-300 transition-all`}
+              className={`p-3 cursor-pointer rounded-md transition-all duration-300 ${
+                selectedTab.id === tab.id
+                  ? "bg-blue-700 text-white font-semibold"
+                  : "hover:bg-blue-800 hover:text-blue-300"
+              }`}
               onClick={() => setSelectedTab(tab)}
             >
-              {tab.title}
+              <span
+                className={`transition-all duration-300 ${
+                  selectedTab.id === tab.id ? "border-l-4 border-blue-400 pl-2" : ""
+                }`}
+              >
+                {tab.title}
+              </span>
             </li>
           ))}
         </ul>
       </div>
 
       {/* Right side - content display */}
-      <div className="w-full lg:w-3/4 flex flex-col lg:flex-row p-6 text-white bg-black">
+      <div className="w-full lg:w-3/4 p-6 bg-gradient-to-r from-slate-900 to-blue-900 flex flex-col lg:flex-row gap-6 items-center">
         {/* Text content */}
         <div className="flex-1 mb-6 lg:mb-0 lg:mr-4">
-          <h3 className="text-xl font-semibold text-blue-400 mb-2">
-            Nasze Usługi
-          </h3>
-          <p className="mb-4 text-lg text-gray-300">{selectedTab.content}</p>
+          <h3 className="text-2xl font-bold text-blue-400 mb-4">{selectedTab.title}</h3>
+          <p className="mb-6 text-lg text-gray-300">{selectedTab.content}</p>
           <Link href={selectedTab.link}>
-            <button className="text-gray-400 hover:text-white transition-all flex items-center">
-              Dowiedz się więcej
-              <span className="ml-2 text-red-500">→</span>
+            <button className="text-blue-500 hover:text-blue-700 transition-colors underline">
+              Dowiedz się więcej →
             </button>
           </Link>
         </div>
@@ -99,7 +103,7 @@ const TabComponent = () => {
             alt={selectedTab.title}
             width={500}
             height={300}
-            className="rounded-lg object-cover"
+            className="rounded-lg object-cover transition-transform duration-300 hover:scale-105"
           />
         </div>
       </div>
